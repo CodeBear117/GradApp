@@ -1,0 +1,29 @@
+.sortFilterBar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .button {
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #3949ab;
+  }
+  
+  /* Assuming you might have secondary buttons for sorting options */
+  .button.secondary {
+    background-color: #eeeeee;
+    color: #333;
+  }
+  
+  .button.secondary:hover {
+    background-color: #e0e0e0;
+  }
