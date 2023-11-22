@@ -1,0 +1,29 @@
+.container {
+    padding: 20px;
+    background-color: #f8f8f8; /* Example background color */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .header {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 100px; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .link {
+    color: #1a0dab;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+  
+  .emails,
+  .notifications {
+    margin-bottom: 20px;
+  }
