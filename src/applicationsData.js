@@ -3,9 +3,10 @@ const applicationsData = [
     {
       id: 1,
       companyName: 'Company X',
-      stage: 3,
+      stage: 2,
       totalStages: 4,
-      currentStatus: 'Interview',
+      currentStatus: 'interview',
+      currentStageName: 'Video Interview',
       dueDate: '30 Aug 2023',
       notification: '1 New Notification'
     },
@@ -15,6 +16,7 @@ const applicationsData = [
       stage: 2,
       totalStages: 5,
       currentStatus: 'Assessment',
+      currentStageName: 'Online Assessment',
       dueDate: '25 Dec 2023',
       notification: ''
     },
@@ -24,6 +26,7 @@ const applicationsData = [
       stage: 3,
       totalStages: 4,
       currentStatus: 'rejected',
+      currentStageName: 'Rejected',
       dueDate: '',
       notification: ''
     }

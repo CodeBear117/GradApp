@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './styles/CompanyPage.module.css';
+import applicationsData from '../applicationsData'; // Import the data
 
 function CompanyPage() {
   let { companyId } = useParams(); // This gets the companyId from the URL

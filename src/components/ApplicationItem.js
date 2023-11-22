@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles/ApplicationItem.module.css';
 
-function ApplicationItem({ companyName, stage, totalStages, currentStatus, dueDate, notification, companyId, history }) {
+function ApplicationItem({ companyName, stage, totalStages, currentStatus, currentStageName, dueDate, notification, companyId, history }) {
   const navigate = useNavigate();
 
   const navigateToCompanyPage = () => {
@@ -28,7 +28,7 @@ function ApplicationItem({ companyName, stage, totalStages, currentStatus, dueDa
         {notification && <span className={styles.notification}>{notification}</span>}
       </div>
       <div className={styles.stageInfo}>
-        {stage && totalStages ? `Stage ${stage} of ${totalStages}:` : currentStatus}
+        {stage && totalStages ? `Stage ${stage} of ${totalStages}: ${currentStageName}` : currentStatus }
       </div>
       {dueDate && <div className={styles.dueDate}>Complete by {dueDate}</div>}
       <div className={styles.progress}>

@@ -1,0 +1,73 @@
+/* AddApplicationForm.module.css */
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContainer {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px; /* Adjust the width as necessary */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.formField {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 16px;
+}
+
+.input {
+  padding: 10px 5px;
+  border: none;
+  border-bottom: 2px solid #ccc; /* Only bottom border */
+  font-size: 16px;
+  background-color: transparent;
+  outline: none;
+}
+
+/* Add styles for select and textarea if necessary */
+
+.button {
+  background-color: #6200ea; /* Example primary color */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px; /* Space from the last input field */
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Style for the input focus */
+.input:focus {
+  border-bottom: 2px solid #6200ea; /* Highlight the bottom border on focus */
+}
