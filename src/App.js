@@ -5,10 +5,11 @@ import SortFilterBar from './components/SortFilterBar';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import CompanyPage from './components/CompanyPage';
 import ApplicationList from './components/ApplicationList';
+import UserProfile from './components/UserProfile';
 //import ApplicationList from './components/ApplicationList/ApplicationList';
 //import BottomNavigation from './components/BottomNavigation';
 
-function MainContent() {
+function MainContent( { firstName } ) {
   const location = useLocation();
 
   // Check if the current path is not the company page
@@ -18,7 +19,7 @@ function MainContent() {
     <>
       {showHeaderAndFilter && (
         <div>
-          <WelcomeBanner />
+          <WelcomeBanner firstName={firstName} />
           <SortFilterBar />
         </div>
       )}
@@ -31,10 +32,22 @@ function MainContent() {
 }
 
 function App() {
+  const user = { // needs to come from a Database
+    firstName: 'John', 
+    lastName: 'Developer',
+    profilePicture: '', // This could be a path to an image or left empty for initials
+  };
+
+  const handleSignOut = () => {
+    // Implement your sign-out logic here
+  };
+
+
   return (
     <Router>
       <div className={styles.App}>
-        <MainContent />
+        <UserProfile user={user} onSignOut={handleSignOut} />
+        <MainContent firstName={user.firstName} />
       </div>
     </Router>
   );

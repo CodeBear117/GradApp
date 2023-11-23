@@ -3,11 +3,11 @@ const applicationsData = [
     {
       id: 1,
       companyName: 'Company X',
-      stage: 2,
+      stage: 3,
       totalStages: 4,
       currentStatus: 'interview',
       currentStageName: 'Video Interview',
-      dueDate: '30 Aug 2023',
+      dueDate: '31 Aug 2023',
       notification: '1 New Notification'
     },
     {
