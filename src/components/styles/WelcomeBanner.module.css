@@ -1,9 +1,15 @@
 .welcomeBanner {
     background-color: #fff;
     color: #333;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     border-radius: 4px;
+    margin-top: 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+  }
+
+  .appTitle {
+    color: #2196F3;
+    line-height: 10px;
+
   }

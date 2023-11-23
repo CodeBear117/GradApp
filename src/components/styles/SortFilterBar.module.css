@@ -6,8 +6,8 @@
   }
   
   .button {
-    background-color: #5c6bc0;
-    color: white;
+    background-color: #EEEEEE;
+    color: #333;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
@@ -16,15 +16,15 @@
   }
   
   .button:hover {
-    background-color: #3949ab;
+    background-color: #E0E0E0;
   }
   
   /* Assuming you might have secondary buttons for sorting options */
   .button.secondary {
-    background-color: #eeeeee;
+    background-color: #EEEEEE;
     color: #333;
   }
   
   .button.secondary:hover {
-    background-color: #e0e0e0;
+    background-color: #E0E0E0;
   }
