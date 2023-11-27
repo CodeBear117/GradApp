@@ -1,7 +1,7 @@
-// This data would normally come from an API call or your application's state
+// This data will simulated data and will come from a database api call in the future.
 const applicationsData = [
     {
-      id: 1,
+      companyId: 1,
       companyName: 'Company X',
       stage: 3,
       totalStages: 4,
@@ -11,7 +11,7 @@ const applicationsData = [
       notification: '1 New Notification'
     },
     {
-      id: 2,
+      companyId: 2,
       companyName: 'Company Y',
       stage: 2,
       totalStages: 5,
@@ -21,7 +21,7 @@ const applicationsData = [
       notification: ''
     },
     {
-      id: 3,
+      companyId: 3,
       companyName: 'Company Z',
       stage: 3,
       totalStages: 4,

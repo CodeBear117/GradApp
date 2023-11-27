@@ -15,11 +15,21 @@ function MainContent( { firstName } ) {
   // Check if the current path is not the company page
   const showHeaderAndFilter = !location.pathname.startsWith("/company/");
 
+  const user = { // needs to come from a Database
+    firstName: 'Sahil', 
+    lastName: 'Developer',
+    profilePicture: '', // This could be a path to an image or left empty for initials
+  };
+
+  const handleSignOut = () => {
+    // Implement sign-out logic
+  };
   return (
     <>
       {showHeaderAndFilter && (
         <div>
-          <WelcomeBanner firstName={firstName} />
+          <UserProfile user={user} onSignOut={handleSignOut} />
+          <WelcomeBanner firstName={user.firstName} />
           <SortFilterBar />
         </div>
       )}
@@ -32,22 +42,10 @@ function MainContent( { firstName } ) {
 }
 
 function App() {
-  const user = { // needs to come from a Database
-    firstName: 'John', 
-    lastName: 'Developer',
-    profilePicture: '', // This could be a path to an image or left empty for initials
-  };
-
-  const handleSignOut = () => {
-    // Implement your sign-out logic here
-  };
-
-
   return (
     <Router>
       <div className={styles.App}>
-        <UserProfile user={user} onSignOut={handleSignOut} />
-        <MainContent firstName={user.firstName} />
+        <MainContent/>
       </div>
     </Router>
   );

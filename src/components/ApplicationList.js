@@ -24,7 +24,7 @@ function ApplicationList() {
     <div>
       {applications.map((application) => (
         <ApplicationItem
-          key={application.id}
+          companyId={application.companyId}
           companyName={application.companyName}
           stage={application.stage}
           totalStages={application.totalStages}

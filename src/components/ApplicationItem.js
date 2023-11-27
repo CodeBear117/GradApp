@@ -2,8 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles/ApplicationItem.module.css';
 
-function ApplicationItem({ companyName, stage, totalStages, currentStatus, currentStageName, dueDate, notification, companyId, history }) {
+function ApplicationItem({ companyId, companyName, stage, totalStages, currentStatus, currentStageName, dueDate, notification, history }) {
   const navigate = useNavigate();
+  console.log(`This is the company name: ${companyName}`)
+  console.log(`This is the company id: ${companyId}`)
 
   const navigateToCompanyPage = () => {
     navigate(`/company/${companyId}`);
