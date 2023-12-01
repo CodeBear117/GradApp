@@ -27,6 +27,7 @@ function AddApplicationForm({ addApplication, closeForm }) {
   return (
     <div className={styles.modalBackground}>
       <div className={styles.modalContainer}>
+        <h1>Add Manually</h1>
         <button className={styles.closeButton} onClick={closeForm}>&times;</button>
         <form onSubmit={handleSubmit}>
             <div className={styles.formField}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles/UserProfile.module.css'; // Make sure to create this module
+import styles from './styles/UserProfile.module.css';
 
 function UserProfile({ user, onSignOut }) {
   const { firstName, lastName, profilePicture } = user;

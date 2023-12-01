@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './App.css';
 import WelcomeBanner from './components/WelcomeBanner';
 import SortFilterBar from './components/SortFilterBar';
@@ -6,29 +6,26 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import CompanyPage from './components/CompanyPage';
 import ApplicationList from './components/ApplicationList';
 import UserProfile from './components/UserProfile';
+import SignIn from './components/SigninPage'; 
 //import ApplicationList from './components/ApplicationList/ApplicationList';
 //import BottomNavigation from './components/BottomNavigation';
 
-function MainContent( { firstName } ) {
+function MainContent( { user, onSignOut } ) {
   const location = useLocation();
 
   // Check if the current path is not the company page
   const showHeaderAndFilter = !location.pathname.startsWith("/company/");
 
-  const user = { // needs to come from a Database
-    firstName: 'Sahil', 
-    lastName: 'Developer',
-    profilePicture: '', // This could be a path to an image or left empty for initials
-  };
-
-  const handleSignOut = () => {
-    // Implement sign-out logic
-  };
+  //const user = { // needs to come from a Database
+  //  firstName: 'Sahil', 
+  //  lastName: 'Developer',
+  //  profilePicture: '', // This could be a path to an image or left empty for initials
+  //};
   return (
     <>
       {showHeaderAndFilter && (
         <div>
-          <UserProfile user={user} onSignOut={handleSignOut} />
+          <UserProfile user={user} onSignOut={onSignOut} />
           <WelcomeBanner firstName={user.firstName} />
           <SortFilterBar />
         </div>
@@ -42,10 +39,24 @@ function MainContent( { firstName } ) {
 }
 
 function App() {
+  const [user, setUser] = useState(null); // State to track user authentication
+  const handleSignIn = (userData) => {
+    setUser(userData); // Set the user data upon successful sign-in
+  };
+  const handleSignOut = () => {
+    setUser(null); // Clear the user data upon sign-out
+  };
+
   return (
     <Router>
       <div className={styles.App}>
-        <MainContent/>
+      {user ? (
+          // If user is signed in, render the MainContent
+          <MainContent user={user} onSignOut={handleSignOut} />
+        ) : (
+          // If no user is signed in, render the SignIn component
+          <SignIn onSignIn={handleSignIn} />
+        )}
       </div>
     </Router>
   );
