@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './App.css';
 import WelcomeBanner from './components/WelcomeBanner';
-import SortFilterBar from './components/SortFilterBar';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import CompanyPage from './components/CompanyPage';
 import ApplicationList from './components/ApplicationList';
@@ -27,7 +26,6 @@ function MainContent( { user, onSignOut } ) {
         <div>
           <UserProfile user={user} onSignOut={onSignOut} />
           <WelcomeBanner firstName={user.firstName} />
-          <SortFilterBar />
         </div>
       )}
       <Routes>

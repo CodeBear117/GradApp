@@ -5,7 +5,7 @@ const applicationsData = [
       companyName: 'Company X',
       stage: 3,
       totalStages: 4,
-      currentStatus: 'interview',
+      currentStatus: 'inProgress',
       currentStageName: 'Video Interview',
       dueDate: '31 Aug 2023',
       notification: '1 New Notification'
@@ -15,7 +15,7 @@ const applicationsData = [
       companyName: 'Company Y',
       stage: 2,
       totalStages: 5,
-      currentStatus: 'Assessment',
+      currentStatus: 'inProgress',
       currentStageName: 'Online Assessment',
       dueDate: '25 Dec 2023',
       notification: ''

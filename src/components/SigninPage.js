@@ -34,9 +34,9 @@ function SignIn({ onSignIn }) {
           className={styles.inputField}
         />
         <button onClick={handleSignIn} className={styles.button}>Sign In</button>
-        <div className={styles.mockCredentials}>
-          "user@example.com" - "password"
-        </div>
+        <p className={styles.mockCredentials}>Use the following:</p>
+        <p className={styles.mockCredentials}>user@example.com</p>
+        <p className={styles.mockCredentials}>password</p>
       </div>
     </div>
   );

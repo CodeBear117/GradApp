@@ -1,13 +1,52 @@
 import React, { useState } from 'react';
 import ApplicationItem from './ApplicationItem';
+import SortFilterBar from './SortFilterBar';
 import AddApplicationForm from './AddApplicationForm';
 import applicationsData from '../applicationsData'; // Import the data
 import styles from './styles/ApplicationList.module.css';
 
 function ApplicationList() {
-  const [applications, setApplications] = useState(applicationsData); // State to manage application data
-  const [showForm, setShowForm] = useState(false); // State to toggle form visibility
 
+  // State to manage application data
+  const [applications, setApplications] = useState(applicationsData);
+
+  // State to toggle form visibility
+  const [showForm, setShowForm] = useState(false);
+
+  // Function to sort list of applications
+  const sortApplications = (criteria) => {
+    let sortedApps = [...applications];
+    
+    if (criteria === 'dueDate') {
+      sortedApps.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+    } else if (criteria === 'companyName') {
+      sortedApps.sort((a, b) => a.companyName.localeCompare(b.companyName));
+    } else if (criteria === 'progress') {
+      sortedApps.sort((a, b) => (a.stage / a.totalStages) - (b.stage / b.totalStages));
+    }
+    setApplications(sortedApps);
+  };
+
+  // Function to filter list of applications
+  const filterApplications = (criteria) => {
+    let filteredApps;
+    switch(criteria) {
+      case 'all':
+        filteredApps = applicationsData;
+        break;
+      case 'inProgress':
+        filteredApps = applicationsData.filter(app => app.currentStatus === 'inProgress');
+        break;
+      case 'rejected':
+        filteredApps = applicationsData.filter(app => app.currentStatus === 'rejected');
+        break;
+      default:
+        filteredApps = applicationsData;
+    }
+    setApplications(filteredApps);
+  };
+
+  // Function to add application manually
   const addApplication = (newAppData) => {
     // Function to add a new application
     const newId = applications.length > 0 ? applications[applications.length - 1].id + 1 : 1;
@@ -15,13 +54,14 @@ function ApplicationList() {
     setShowForm(false); // Hide form after adding
   };
 
+  // Function to toggle the form's visibility
   const toggleForm = () => {
-    // Function to toggle the form's visibility
     setShowForm(!showForm);
   };
 
   return (
     <div>
+      <SortFilterBar onSort={sortApplications} onFilter={filterApplications}/>
       {applications.map((application) => (
         <ApplicationItem
           companyId={application.companyId}

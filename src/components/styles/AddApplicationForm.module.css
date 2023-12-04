@@ -1,4 +1,3 @@
-/* AddApplicationForm.module.css */
 .modalBackground {
   position: fixed;
   top: 0;
@@ -34,19 +33,17 @@
   font-size: 16px;
 }
 
-.input {
-  padding: 10px 5px;
-  border: none;
-  border-bottom: 2px solid #ccc; /* Only bottom border */
-  font-size: 16px;
-  background-color: transparent;
-  outline: none;
+.inputField {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #ddd; /* Light grey border */
+  box-sizing: border-box;
 }
 
-/* Add styles for select and textarea if necessary */
-
 .button {
-  background-color: #6200ea; /* Example primary color */
+  background-color: #2196F3; /* Example primary color */
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
@@ -57,6 +54,10 @@
   margin-top: 20px; /* Space from the last input field */
 }
 
+.button:hover {
+  background-color: #216bf3;
+}
+
 .closeButton {
   position: absolute;
   top: 10px;
@@ -65,9 +66,4 @@
   background: none;
   cursor: pointer;
   font-size: 24px;
-}
-
-/* Style for the input focus */
-.input:focus {
-  border-bottom: 2px solid #9747FF; /* Highlight the bottom border on focus */
 }

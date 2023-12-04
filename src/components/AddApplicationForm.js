@@ -11,14 +11,22 @@ function AddApplicationForm({ addApplication, closeForm }) {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    // If the field being changed is dueDate, handle the conversion
+    if (e.target.name === 'dueDate') {
+      // Assuming the input will be in the format YYYY-MM-DD and needs to be converted to DD-MM-YYYY
+      const [year, month, day] = e.target.value.split('-');
+      setFormData({ ...formData, dueDate: `${day}-${month}-${year}` });
+    } else {
+      // Handle other inputs normally
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addApplication({
         ...formData,
-        currentStatus: 'In Progress' // Set the status programmatically
+        currentStatus: 'inProgress' // Set the status programmatically
       });
 
     closeForm(); // Call a function to close the form
@@ -37,6 +45,7 @@ function AddApplicationForm({ addApplication, closeForm }) {
                     id="companyName"
                     name="companyName"
                     value={formData.companyName}
+                    className={styles.inputField}
                     onChange={handleChange}
                     required
                 />
@@ -47,6 +56,7 @@ function AddApplicationForm({ addApplication, closeForm }) {
                     id="currentStageName"
                     name="currentStageName"
                     value={formData.currentStageName}
+                    className={styles.inputField}
                     onChange={handleChange}
                     required
                 />
@@ -57,6 +67,7 @@ function AddApplicationForm({ addApplication, closeForm }) {
                     id="stage"
                     name="stage"
                     value={formData.stage}
+                    className={styles.inputField}
                     onChange={handleChange}
                 />
 
@@ -66,6 +77,7 @@ function AddApplicationForm({ addApplication, closeForm }) {
                     id="totalStages"
                     name="totalStages"
                     value={formData.totalStages}
+                    className={styles.inputField}
                     onChange={handleChange}
                 />
 
@@ -74,7 +86,8 @@ function AddApplicationForm({ addApplication, closeForm }) {
                     type="date"
                     id="dueDate"
                     name="dueDate"
-                    value={formData.dueDate}
+                    value={formData.dueDate.split('-').reverse().join('-')}
+                    className={styles.inputField}
                     onChange={handleChange}
                     required
                 />
