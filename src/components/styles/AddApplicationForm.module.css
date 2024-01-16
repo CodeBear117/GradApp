@@ -16,7 +16,7 @@
   padding: 30px;
   border-radius: 10px;
   width: 90%;
-  max-width: 400px; /* Adjust the width as necessary */
+  max-width: 400px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
 }
@@ -43,7 +43,7 @@
 }
 
 .button {
-  background-color: #2196F3; /* Example primary color */
+  background-color: #2196f3; /* primary color */
   color: white;
   padding: 10px 20px;
   border-radius: 20px;

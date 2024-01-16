@@ -6,7 +6,6 @@ import CompanyPage from './components/CompanyPage';
 import ApplicationList from './components/ApplicationList';
 import UserProfile from './components/UserProfile';
 import SignIn from './components/SigninPage'; 
-//import ApplicationList from './components/ApplicationList/ApplicationList';
 //import BottomNavigation from './components/BottomNavigation';
 
 function MainContent( { user, onSignOut } ) {
@@ -18,7 +17,7 @@ function MainContent( { user, onSignOut } ) {
   //const user = { // needs to come from a Database
   //  firstName: 'Sahil', 
   //  lastName: 'Developer',
-  //  profilePicture: '', // This could be a path to an image or left empty for initials
+  //  profilePicture: '',
   //};
   return (
     <>

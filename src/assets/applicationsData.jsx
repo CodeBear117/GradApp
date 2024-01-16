@@ -1,4 +1,4 @@
-// This data will simulated data and will come from a database api call in the future.
+// This data is simulated data and will come from a database api call in the future.
 const applicationsData = [
     {
       companyId: 1,

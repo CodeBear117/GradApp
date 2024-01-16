@@ -1,8 +1,10 @@
+// This component contains the list of applications.
+
 import React, { useState } from 'react';
 import ApplicationItem from './ApplicationItem';
 import SortFilterBar from './SortFilterBar';
 import AddApplicationForm from './AddApplicationForm';
-import applicationsData from '../applicationsData'; // Import the data
+import applicationsData from '../assets/applicationsData'; // Import the mock data
 import styles from './styles/ApplicationList.module.css';
 
 function ApplicationList() {
@@ -16,7 +18,6 @@ function ApplicationList() {
   // Function to sort list of applications
   const sortApplications = (criteria) => {
     let sortedApps = [...applications];
-    
     if (criteria === 'dueDate') {
       sortedApps.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
     } else if (criteria === 'companyName') {
@@ -48,10 +49,15 @@ function ApplicationList() {
 
   // Function to add application manually
   const addApplication = (newAppData) => {
-    // Function to add a new application
+    
+    // Create a new id for this application
     const newId = applications.length > 0 ? applications[applications.length - 1].id + 1 : 1;
+    
+    // Add new card to the list
     setApplications([...applications, { ...newAppData, id: newId }]);
-    setShowForm(false); // Hide form after adding
+    
+    // Hide form after adding
+    setShowForm(false);
   };
 
   // Function to toggle the form's visibility
@@ -60,8 +66,10 @@ function ApplicationList() {
   };
 
   return (
-    <div>
+    <div className={styles.mainContent}>
+      {/* Render Sort and Filter dropdowns */}
       <SortFilterBar onSort={sortApplications} onFilter={filterApplications}/>
+      {/* Render all application cards */}
       {applications.map((application) => (
         <ApplicationItem
           companyId={application.companyId}
@@ -73,19 +81,17 @@ function ApplicationList() {
           dueDate={application.dueDate}
           notification={application.notification}
         />
-      ))} 
-      
+      ))}
+       
       <div className={styles.addButtonContainer}>
+        {/* render button to add form manually */}
         <button onClick={toggleForm} className={styles.addButton}>
           {showForm ? <span className={styles.closeIcon}>&times;</span> : <span className={styles.plusIcon}>+</span>}
         </button>
       </div>
-      
+      {/* Render form if toggled */}
       {showForm && <AddApplicationForm addApplication={addApplication} closeForm={toggleForm}/>}
-
     </div>
-
-    
   );
 }
 

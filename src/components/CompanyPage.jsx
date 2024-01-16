@@ -1,21 +1,25 @@
-import React from 'react';
+// This component is contains the company page information after the user clicks on the Details button on card item
+
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './styles/CompanyPage.module.css';
-import applicationsData from '../applicationsData'; // Import the data
+import applicationsData from '../assets/applicationsData'; // Import the mock data
 
 function CompanyPage() {
-  const { companyId } = useParams(); // Extract companyId from URL
 
+  // Extract companyId from URL
+  const { companyId } = useParams(); 
+
+  // Navigate back to root
   const navigate = useNavigate();
-
   const goBack = () => {
     navigate('/');
   };
   
   // Fetch the company data based on the companyId,
   const companyData = applicationsData.find(company => company.companyId === parseInt(companyId));
-  // Check if companyData exists and access its properties
   // must add a case for if the company is added manually
+
+  // Check if companyData exists and access its properties
   const companyName = companyData ? companyData.companyName : 'Company Not Found';
   //const companyLogoUrl = companyData ? companyData.logoUrl : '#';
   //const companyWebpageUrl = companyData ? companyData.webpageUrl : '#';

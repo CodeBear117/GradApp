@@ -1,4 +1,4 @@
-// hardcoded credentials for a mock user to sign into my GradApp
+// hardcoded credentials for a mock user to sign into GradApp.
 
 const mockCredentials = {
     email: "user@example.com",

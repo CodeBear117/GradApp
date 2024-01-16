@@ -1,91 +1,91 @@
 .applicationItem {
-    background-color: #F5F5F5;
-    padding: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-  
-  .companyName {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .notification {
-    background-color: #9747FF; /* Purple color */
-    color: white;
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-  }
-  
-  .stageInfo {
-    color: #666;
-    font-size: 1rem;
-    margin-bottom: 4px;
-  }
-  
-  .dueDate {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 16px;
-  }
-  
-  .progress {
-    display: flex;
-    gap: 5px;
-    margin-bottom: 16px;
-  }
-  
-  .circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #bbb; /* Unfilled circle color */
-    display: inline-block;
-  }
-  
-  .completed {
-    background-color: #2196F3; /* Blue color for completed stages */
-  }
-  
-  .current {
-    background-color: #FFEB3B; /* Yellow color for the current stage */
-  }
-  
-  .rejected {
-    background-color: #F44336; /* Red color for rejection */
-  }
-  
-  .detailsButton {
-    background-color: #e0e0e0; /* Light grey color */
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: inline-block;
-  }
-  
-  .detailsButton:hover {
-    background-color: #cccccc; /* Darker grey on hover */
-  }
+  background-color: #e0ecff;
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .progress + .detailsButton {
-    align-self: flex-start; /* This will align the button to the start of the flex container */
-    margin-top: auto; /* This will push the button to the bottom if the flex-direction is column */
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.companyName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2196f3;
+}
+
+.notification {
+  background-color: #9747ff;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.stageInfo {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.dueDate {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.progress {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #bbb; /* Unfilled circle color */
+  display: inline-block;
+}
+
+.completed {
+  background-color: #2196f3; /* Blue for completed stages */
+}
+
+.current {
+  background-color: #ffeb3b; /* Yellow for the current stage */
+}
+
+.rejected {
+  background-color: #f44336; /* Red for rejection */
+}
+
+.detailsButton {
+  background-color: #e0e0e0; /* Light grey */
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.detailsButton:hover {
+  background-color: #cccccc; /* Darker grey on hover */
+}
+
+.progress + .detailsButton {
+  align-self: flex-start; /* Align the button to the start of the flex container */
+  margin-top: auto; /* Push the button to the bottom if the flex-direction is column */
+}

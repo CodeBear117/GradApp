@@ -1,48 +1,50 @@
 .profileContainer {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px;
-  }
-  
-  .profilePicContainer {
-    width: 50px; /* Profile picture size */
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: #ccc; /* A default background color */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-  }
-  
-  .initials {
-    font-size: 1.5em; /* Adjust size as needed */
-    color: white; /* Text color for the initials */
-  }
-  
-  .profilePic {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the area */
-  }
-  
-  .userInfo {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .userName {
-    font-weight: bold;
-  }
-  
-  .signOutButton {
-    background: none;
-    border: none;
-    color: #007bff; /* Example sign-out button color */
-    cursor: pointer;
-    font-size: 0.8em;
-  }
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  z-index: 2000;
+}
+
+.profilePicContainer {
+  width: 50px; /* Profile picture size */
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ccc; /* A default background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.initials {
+  font-size: 1.5em; /* Adjust size as needed */
+  color: white; /* Text color for the initials */
+}
+
+.profilePic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area */
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-weight: bold;
+  color: white;
+}
+
+.signOutButton {
+  background: none;
+  border: none;
+  color: #007bff; /* Example sign-out button color */
+  cursor: pointer;
+  font-size: 0.8em;
+}

@@ -1,7 +1,11 @@
+// This component function is used to manually add a card to the list of applications
+
 import React, { useState } from 'react';
-import styles from './styles/AddApplicationForm.module.css'; // This should be the path to your CSS module
+import styles from './styles/AddApplicationForm.module.css';
 
 function AddApplicationForm({ addApplication, closeForm }) {
+  
+  // State to control form database data
   const [formData, setFormData] = useState({
     companyName: '',
     stage: '',
@@ -10,8 +14,9 @@ function AddApplicationForm({ addApplication, closeForm }) {
     dueDate: ''
   });
 
+  // Handle inputs to the form
   const handleChange = (e) => {
-    // If the field being changed is dueDate, handle the conversion
+    // If the field being changed is dueDate, handle the conversion to date format
     if (e.target.name === 'dueDate') {
       // Assuming the input will be in the format YYYY-MM-DD and needs to be converted to DD-MM-YYYY
       const [year, month, day] = e.target.value.split('-');
@@ -22,23 +27,27 @@ function AddApplicationForm({ addApplication, closeForm }) {
     }
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     addApplication({
         ...formData,
         currentStatus: 'inProgress' // Set the status programmatically
       });
-
-    closeForm(); // Call a function to close the form
+    // close form after submission
+    closeForm();
   };
 
   return (
     <div className={styles.modalBackground}>
       <div className={styles.modalContainer}>
         <h1>Add Manually</h1>
+        {/* Render close form button */}
         <button className={styles.closeButton} onClick={closeForm}>&times;</button>
         <form onSubmit={handleSubmit}>
             <div className={styles.formField}>
+
+                {/* Render field to input company name*/}
                 <label className={styles.label} htmlFor="companyName">Company Name</label>
                 <input
                     type="text"
@@ -49,7 +58,8 @@ function AddApplicationForm({ addApplication, closeForm }) {
                     onChange={handleChange}
                     required
                 />
-
+                
+                {/* Render field to input current stage NAME */}
                 <label className={styles.label} htmlFor="currentStageName">Current Stage Name</label>
                 <input
                     type="text"
@@ -61,6 +71,7 @@ function AddApplicationForm({ addApplication, closeForm }) {
                     required
                 />
 
+                {/* Render field to input current stage NUMBER */}
                 <label className={styles.label} htmlFor="stage">Current Stage Number</label>
                 <input
                     type="text"
@@ -71,6 +82,7 @@ function AddApplicationForm({ addApplication, closeForm }) {
                     onChange={handleChange}
                 />
 
+                {/* Render field to input total stages */}
                 <label className={styles.label} htmlFor="totalStages">Total Stages</label>
                 <input
                     type="text"
@@ -81,6 +93,7 @@ function AddApplicationForm({ addApplication, closeForm }) {
                     onChange={handleChange}
                 />
 
+                {/* Render field to input due date */}
                 <label className={styles.label} htmlFor="dueDate">Due Date</label>
                 <input
                     type="date"
@@ -92,8 +105,8 @@ function AddApplicationForm({ addApplication, closeForm }) {
                     required
                 />
             </div>
-
           <div className={styles.formField}>
+            {/* Render submit button */}
             <button className={styles.button} type="submit">
               Add
             </button>

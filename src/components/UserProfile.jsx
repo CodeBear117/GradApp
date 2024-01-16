@@ -1,7 +1,10 @@
-import React from 'react';
+// This component contains the code for the user's profile image and details in the header
+
 import styles from './styles/UserProfile.module.css';
 
 function UserProfile({ user, onSignOut }) {
+
+  // State used to set current user details based on login
   const { firstName, lastName, profilePicture } = user;
 
   // Helper function to get initials
@@ -12,6 +15,7 @@ function UserProfile({ user, onSignOut }) {
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profilePicContainer}>
+        {/* Render dynamic profile picture based on user's initials if no profile picture is available */}
         {profilePicture ? (
           <img src={profilePicture} alt="Profile" className={styles.profilePic} />
         ) : (
