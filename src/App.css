@@ -17,3 +17,8 @@ code {
   width: 90%;
   margin: auto;
 }
+
+/* Inject Tailwind CSS as an after-thought for the purpose of demonstrating proficiency in Tailwind */
+/* @tailwind base; - remove base Tailwind styles to stop TW from resetting existing styles */
+@tailwind components;
+@tailwind utilities;

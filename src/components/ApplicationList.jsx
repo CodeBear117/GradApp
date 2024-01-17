@@ -72,6 +72,7 @@ function ApplicationList() {
       {/* Render all application cards */}
       {applications.map((application) => (
         <ApplicationItem
+          key={application.companyId}
           companyId={application.companyId}
           companyName={application.companyName}
           stage={application.stage}

@@ -10,9 +10,14 @@ function AddApplicationForm({ addApplication, closeForm }) {
     companyName: '',
     stage: '',
     totalStages: '',
+    currentStatus: '',
     currentStageName: '',
-    dueDate: ''
+    dueDate: '',
+    notification:''
   });
+
+  // set the default company ID to 1000 to ensure it does not conflict with current applications
+  const [nextId, setNextId] = useState(1000);
 
   // Handle inputs to the form
   const handleChange = (e) => {
@@ -29,10 +34,14 @@ function AddApplicationForm({ addApplication, closeForm }) {
 
   // Handle form submission
   const handleSubmit = (e) => {
+    const newCompanyId = nextId;
+    setNextId(prevId => prevId + 1);
     e.preventDefault();
     addApplication({
         ...formData,
-        currentStatus: 'inProgress' // Set the status programmatically
+        companyId: newCompanyId,
+        currentStatus: 'inProgress', // Set the status programmatically
+        notification: `manually added application; you won't receive notifications for this application` // Set notification status programmatically
       });
     // close form after submission
     closeForm();

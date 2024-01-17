@@ -3,7 +3,7 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './styles/ApplicationItem.module.css';
 
-function ApplicationItem({ companyId, companyName, stage, totalStages, currentStatus, currentStageName, dueDate, notification, history }) {
+function ApplicationItem({ companyId, companyName, stage, totalStages, currentStatus, currentStageName, dueDate, notification }) {
 
   // Navigate to a selected company details page
   const navigate = useNavigate();
