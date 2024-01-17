@@ -11,10 +11,6 @@ function ApplicationItem({ companyId, companyName, stage, totalStages, currentSt
     navigate(`/company/${companyId}`);
   };
 
-  //testing
-  console.log(`This is the company name: ${companyName}`)
-  console.log(`This is the company id: ${companyId}`)
-
   // Generates the progress circles based on the stage and totalStages
   const progressCircles = [];
   for (let i = 1; i <= totalStages; i++) {

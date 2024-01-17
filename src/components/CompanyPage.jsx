@@ -17,25 +17,14 @@ function CompanyPage() {
   
   // Fetch the company data based on the companyId,
   const companyData = applicationsData.find(company => company.companyId === parseInt(companyId));
-  // must add a case for if the company is added manually
-  // Debugging logs
-  console.log("companyData:", companyData);
-  console.log("Company ID from URL:", companyId);
-  console.log("Found Company Data:", companyData);
-
+  
   // Check if companyData exists and access its properties
+  // These details would come from a database that is populated by the company and their profile additions
   const companyName = companyData ? companyData.companyName : 'Company Not Found';
   const currentStatus = companyData && companyData.currentStatus !== '' ? companyData.currentStatus : null;
-  console.log("current status:", currentStatus)
   const currentStageName = companyData ? (companyData.currentStageName === 'Rejected' ? 'Unlikely to progress further' : companyData.currentStageName) : 'Unknown Stage';
-  console.log("current Stage Name:", currentStageName)
-  const dueDate = companyData && companyData.dueDate !== '' ? companyData.dueDate : null;
-  console.log("due date:", dueDate)
-  const notification = companyData && companyData.notification !== '' ? companyData.notification : null;
-  console.log("notification:", notification)
-  //const companyLogoUrl = companyData ? companyData.logoUrl : '#';
-  //const companyWebpageUrl = companyData ? companyData.webpageUrl : '#';
-  // These details would come from a database that is populated by the company and their profile additions
+  const dueDate = companyData === undefined ? null : companyData.dueDate;
+  const notification = companyData === undefined ? null : companyData.notification;
 
   return (
     <div className="relative">
@@ -44,7 +33,7 @@ function CompanyPage() {
         <Button variant="contained" onClick={goBack}>Back to Dashboard</Button>
       </div>
       <div  className='ml-10 mb-0'>
-        <h1>Your application with{companyName}</h1>
+        <h1>Your application with {companyName}</h1>
         {notification && <span className='bg-[#9747ff] text-white px-4 py-1 rounded-xl text-sm'>{notification}</span>}
       </div>
       <div>
@@ -60,8 +49,12 @@ function CompanyPage() {
             {/* Render list of notifications */}
             <div className="pb-5">
               <h2 className='text-[#2196f3]'>Notifications</h2>
-              {notification ? <p>These are the contents of the notification, it would be imported form an email</p> : <p>No notifications.</p>}
-              {notification === null && <p>This application was added manually. You will not receive notifications for manually added applications.</p>}
+              {currentStatus === 'rejected' || notification === ''
+                ? <p>No notifications.</p>
+                : notification === null
+                  ? <p>This application was added manually. You will not receive notifications for manually added applications.</p>
+                  : <p>These are the contents of the notification, it would be imported from an email.</p>
+              }
             </div>
             {/* Render applion document details */}
             <div className="flex flex-col pb-5">

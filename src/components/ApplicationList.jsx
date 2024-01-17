@@ -83,7 +83,6 @@ function ApplicationList() {
           notification={application.notification}
         />
       ))}
-       
       <div className={styles.addButtonContainer}>
         {/* render button to add form manually */}
         <button onClick={toggleForm} className={styles.addButton}>
